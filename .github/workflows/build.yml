@@ -1,0 +1,22 @@
+name: Build dylib
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: Randomblock1/theos-action@v1
+      - name: Build
+        run: make package FINALPACKAGE=1
+      - name: Collect output
+        run: |
+          mkdir -p out
+          find .theos/obj -name EeveeImmersive.dylib -exec cp {} out/ \;
+          cp packages/*.deb out/ || true
+          ls -la out
+      - uses: actions/upload-artifact@v4
+        with:
+          name: EeveeImmersive
+          path: out/
