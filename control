@@ -1,0 +1,9 @@
+Package: com.example.eeveeimmersive
+Name: EeveeImmersive
+Version: 0.1.0
+Architecture: iphoneos-arm
+Description: Full-screen immersive album art for Spotify's Now Playing screen
+Maintainer: pulse
+Author: pulse
+Section: Tweaks
+Depends: mobilesubstrate
